@@ -1,22 +1,30 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour{
 
-    public Camera cam;
-    public NavMeshAgent agent;
-    
+    [SerializeField] Camera cam;
+    [SerializeField] NavMeshAgent agent;
+
+    Animator _animator;
+
+    void Start(){
+        _animator = GetComponent<Animator>();
+    }
+
     void Update(){
+
         if (Input.GetMouseButtonDown(0)){
-
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition); 
             RaycastHit hit;
-
+        
             if (Physics.Raycast(ray, out hit)){
-                
-                //Move Agent
+                //Move
                 agent.SetDestination(hit.point);
             }
+                    
         }
     }
 }

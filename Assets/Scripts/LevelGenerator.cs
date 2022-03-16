@@ -9,7 +9,7 @@ public class LevelGenerator : MonoBehaviour{
 
     public NavMeshSurface surface;
     
-    bool playerSpawned = false;
+    bool _playerSpawned = false;
 
     void Start(){
         
